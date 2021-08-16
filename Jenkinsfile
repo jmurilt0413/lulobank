@@ -1,4 +1,4 @@
-pipeline {
+ypipeline {
   agent any
   stages {
     stage("build"){
@@ -11,7 +11,7 @@ pipeline {
         echo 'building the app...'
       }
     }
-    stage("test"){
+    stage("deploy"){
       steps{
         echo 'building the app...'
       }
