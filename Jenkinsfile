@@ -2,10 +2,9 @@ pipeline {
   agent any
   stages {
     stage("build"){
-      git url: 'https://github.com/jmurilt0413/lulobank.git'
-    withMaven {
-      sh "mvn clean verify"
-    }
+       steps{
+        echo 'build the app...'
+      }
     }
     stage("test"){
       steps{
