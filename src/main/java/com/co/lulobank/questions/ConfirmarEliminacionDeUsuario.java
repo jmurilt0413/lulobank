@@ -19,7 +19,7 @@ public class ConfirmarEliminacionDeUsuario implements Question<Boolean> {
         return !mensajeEliminacion.equals(theActorInTheSpotlight().recall(CONSULTA_REGISTRO_ENCONTRADO.getMensaje()));
     }
 
-    public static Question<Boolean> Exitosa(String mensajeEliminacion) {
+    public static Question<Boolean> exitosa(final String mensajeEliminacion) {
         return new ConfirmarEliminacionDeUsuario(mensajeEliminacion);
     }
 }

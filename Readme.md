@@ -4,8 +4,13 @@
 3. [Ejecución](installation)
 ### General Info
 ***
+Este proyecto fue creado con el proposito de consumir los servicios de DummyApiRest por medio de una prueba de smoke a los EndPoint:
+```
+http://dummy.restapiexample.com/api/v1/employee/{id}
+http://dummy.restapiexample.com/api/v1/create
+http://dummy.restapiexample.com/api/v1/delete/{id}
 
-
+```
 ## Tecnologías
 ***
 Esta es la lista de tecnologias utilizadas:
@@ -19,10 +24,19 @@ Esta es la lista de tecnologias utilizadas:
 * [Lombok](https://mvnrepository.com/artifact/org.projectlombok)
 ## Ejecución
 ***
-Se debe seguir los siguientes pasos 
+Para construir el proyecto:
 ```
-
-* Se puede ejecutar todo el proyecto desde la terminal con mvn
-
-
+mvn clean install
+```
+Para ejecutar los test:
+```
+mvn clean -Dtest=ValidarServiciosDummyRunner test 
+```
+Para generar el reporte:
+```
+mvn serenity:aggregate
+```
+El reporte sera creado en:
+```
+//target/site/index.html
 ```

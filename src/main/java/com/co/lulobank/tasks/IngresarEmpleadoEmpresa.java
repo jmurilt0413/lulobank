@@ -16,30 +16,30 @@ import java.util.Map;
 
 import static com.co.lulobank.exceptions.ConsumoServicioError.FALLO_CONSUMO_SERVICIO;
 import static com.co.lulobank.utils.enums.EnumRecursosServicios.AGREGAR_EMPLEADO;
-import static com.co.lulobank.utils.enums.EnumVariableSesion.*;
+import static com.co.lulobank.utils.enums.EnumVariableSesion.DATOS_INGRESO_EMPLEADO;
+import static com.co.lulobank.utils.enums.EnumVariableSesion.ID_CLIENTE;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class IngresarEmpleadoEmpresa implements Task {
 
-    private Map<String, String> datosEmpelado;
-    private DatosEmpleado datosEmpleado = new DatosEmpleado();
+    private Map<String, String> datos;
 
-    public IngresarEmpleadoEmpresa(Map<String, String> datosEmpelado) {
-        this.datosEmpelado = datosEmpelado;
+    public IngresarEmpleadoEmpresa(Map<String, String> datos) {
+        this.datos = datos;
     }
 
-    public static IngresarEmpleadoEmpresa conLosDatos(Map<String, String> datosEmpelado) {
-        return instrumented(IngresarEmpleadoEmpresa.class, datosEmpelado);
+    public static IngresarEmpleadoEmpresa conLosDatos(Map<String, String> datos) {
+        return instrumented(IngresarEmpleadoEmpresa.class, datos);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        datosEmpleado.setName(datosEmpelado.get("Nombre"));
-        datosEmpleado.setSalary(datosEmpelado.get("Salario"));
-        datosEmpleado.setAge(datosEmpelado.get("Edad"));
+        DatosEmpleado datosEmpleado = new DatosEmpleado();
+        datosEmpleado.setName(datos.get("Nombre"));
+        datosEmpleado.setSalary(datos.get("Salario"));
+        datosEmpleado.setAge(datos.get("Edad"));
         actor.attemptsTo(Post.to(AGREGAR_EMPLEADO.getRecurso())
                 .with(requestSpecification -> requestSpecification
                         .contentType(ContentType.JSON)

@@ -26,7 +26,7 @@ public class ConsultaEmpleadoEspecifico implements Task {
 
     private final int idEmpleado;
 
-    public static ConsultaEmpleadoEspecifico conid(int idEmpleado) {
+    public static ConsultaEmpleadoEspecifico conId(int idEmpleado) {
         return instrumented(ConsultaEmpleadoEspecifico.class, idEmpleado);
     }
 

@@ -23,7 +23,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class ConsultaEmpleados implements Task {
 
-    public static ConsultaEmpleados generalEmmpresa() {
+    public static ConsultaEmpleados generalEmpresa() {
         return new ConsultaEmpleados();
     }
 
@@ -36,14 +36,6 @@ public class ConsultaEmpleados implements Task {
         actor.should(
                 seeThat(CodigoRespuestaServicio.obtenido(), equalTo(HttpStatus.SC_OK))
                         .orComplainWith(ConsumoServicioError.class, FALLO_CONSUMO_SERVICIO));
-        actor.remember(CANTIDAD_EMPLEADOS_EMPRESA.getVariableSesion(),
-                Collections.singletonList(SerenityRest.lastResponse()
-                        .as(ResponseEmpleado.class).getDatosEmpleado()).size());
-        actor.remember("prueba",
-                Arrays.asList(SerenityRest.lastResponse()
-                        .as(ResponseEmpleado.class).getDatosEmpleado()));
-        actor.remember("prueba2",
-                SerenityRest.lastResponse()
-                        .as(ResponseEmpleado.class));
+
     }
 }

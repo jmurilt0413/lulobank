@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.annotation.Generated;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "name",
@@ -17,17 +15,19 @@ import javax.annotation.Generated;
         "id"
 })
 @Getter
-@Setter
 public class DatosEmpleado {
 
     @JsonProperty("name")
     @JsonAlias("employee_name")
+    @Setter
     private String name;
     @JsonProperty("salary")
     @JsonAlias("employee_salary")
+    @Setter
     private String salary;
     @JsonProperty("age")
     @JsonAlias("employee_age")
+    @Setter
     private String age;
     @JsonProperty("id")
     private Integer id;
@@ -40,18 +40,18 @@ public class DatosEmpleado {
         sb.append(DatosEmpleado.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("name");
         sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
+        sb.append(((this.name == null) ? "<null>" : this.name));
         sb.append(',');
         sb.append("salary");
         sb.append('=');
-        sb.append(((this.salary == null)?"<null>":this.salary));
+        sb.append(((this.salary == null) ? "<null>" : this.salary));
         sb.append(',');
         sb.append("age");
         sb.append('=');
-        sb.append(((this.age == null)?"<null>":this.age));
+        sb.append(((this.age == null) ? "<null>" : this.age));
         sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }
@@ -62,13 +62,13 @@ public class DatosEmpleado {
     public boolean equals(Object responseObject) {
         if (responseObject == this) {
             return true;
-        } else if ((responseObject==null) || ((responseObject instanceof DatosEmpleado) == false)){
+        } else if ((responseObject == null) || ((responseObject instanceof DatosEmpleado) == false)) {
             return false;
         }
         DatosEmpleado rhs = ((DatosEmpleado) responseObject);
-        return ((((this.name == rhs.name)||((this.name!= null)&&this.name.equals(rhs.name)))
-                &&((this.salary == rhs.salary)||((this.salary!= null)&&this.salary.equals(rhs.salary))))
-                &&((this.age == rhs.age)||((this.age!= null)&&this.age.equals(rhs.age))));
+        return ((((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))
+                && ((this.salary == rhs.salary) || ((this.salary != null) && this.salary.equals(rhs.salary))))
+                && ((this.age == rhs.age) || ((this.age != null) && this.age.equals(rhs.age))));
     }
 
 }
